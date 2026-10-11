@@ -1,6 +1,26 @@
-# Casa Habitada · App de informes
+<p align="center">
+  <img src="public/favicon.svg" width="72" alt="Casa Habitada">
+</p>
 
-[![CI](https://github.com/Rosaryto/casa-habitada-app/actions/workflows/ci.yml/badge.svg)](https://github.com/Rosaryto/casa-habitada-app/actions/workflows/ci.yml)
+<h1 align="center">Casa Habitada · App de informes</h1>
+
+<p align="center">
+  Registro de visitas con lista de control y fotos, e informe privado para cada propietario.
+  <br>
+  <a href="https://casa-habitada-salta.netlify.app/?demo"><strong>Ver demo en vivo »</strong></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Rosaryto/casa-habitada-app/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Rosaryto/casa-habitada-app/actions/workflows/ci.yml/badge.svg"></a>
+  <img alt="React 19" src="https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white">
+  <img alt="Vite 8" src="https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white">
+  <img alt="Supabase" src="https://img.shields.io/badge/Supabase-Auth%20%C2%B7%20Postgres%20%C2%B7%20Storage-3ecf8e?logo=supabase&logoColor=white">
+  <img alt="Netlify" src="https://img.shields.io/badge/Deploy-Netlify-00c7b7?logo=netlify&logoColor=white">
+</p>
+
+![Pantallas de la app](docs/screenshots/pantallas.png)
+
+## Descripción
 
 Aplicación web para el servicio de cuidado de casas **Casa Habitada**. Permite
 registrar cada visita con una lista de control y fotos, y ofrece a cada
@@ -108,7 +128,7 @@ nunca debe incluirse en la app.
 ## Estructura del proyecto
 
 ```
-app/
+casa-habitada-app/
 ├── public/              Archivos estáticos (íconos, manifest)
 ├── src/
 │   ├── components/      Componentes reutilizables
