@@ -7,7 +7,7 @@ const HOY = '2026-03-10T13:00:00Z'
 const haceDias = (n) => new Date(Date.parse(HOY) - n * 864e5).toISOString()
 
 test('sin visita previa toca siempre', () => {
-  assert.deepEqual(estadoCasa({ plan: 'Plan Presente' }, null), { clave: 'toca', texto: 'Primera visita' })
+  assert.deepEqual(estadoCasa({ plan: 'Plan Mensual' }, null), { clave: 'toca', texto: 'Primera visita' })
 })
 
 test('visita hecha hoy queda como hecha, aunque el plan pida cada 7 días', () => {
@@ -16,6 +16,8 @@ test('visita hecha hoy queda como hecha, aunque el plan pida cada 7 días', () =
 })
 
 test('planes sin intervalo fijo quedan libres', () => {
+  assert.deepEqual(estadoCasa({ plan: 'Por día' }, { inicio: haceDias(10) }, Date.parse(HOY)),
+    { clave: 'libre', texto: 'Por día' })
   assert.deepEqual(estadoCasa({ plan: 'Visita suelta' }, { inicio: haceDias(10) }, Date.parse(HOY)),
     { clave: 'libre', texto: 'Visita suelta' })
   assert.deepEqual(estadoCasa({ plan: null }, { inicio: haceDias(1) }, Date.parse(HOY)),
@@ -28,10 +30,20 @@ test('según el plan se atrasa, toca hoy o está al día', () => {
     { clave: 'toca', texto: 'Atrasada 1 día' })
   assert.deepEqual(estadoCasa({ plan: 'Plan Tranquilo' }, { inicio: haceDias(10) }, ahora),
     { clave: 'toca', texto: 'Atrasada 3 días' })
-  assert.deepEqual(estadoCasa({ plan: 'Plan Presente' }, { inicio: haceDias(2) }, ahora),
+  assert.deepEqual(estadoCasa({ plan: 'Plan Mensual' }, { inicio: haceDias(2) }, ahora),
     { clave: 'toca', texto: 'Toca hoy' })
-  assert.deepEqual(estadoCasa({ plan: 'Plan Presente' }, { inicio: haceDias(1) }, ahora),
+  assert.deepEqual(estadoCasa({ plan: 'Plan Turno Minero' }, { inicio: haceDias(1) }, ahora),
     { clave: 'al-dia', texto: 'Toca mañana' })
+})
+
+test('con mascotas la visita es diaria', () => {
+  const ahora = Date.parse(HOY)
+  assert.deepEqual(estadoCasa({ plan: 'Plan Mensual', mascotas: 'Toto' }, { inicio: haceDias(1) }, ahora),
+    { clave: 'toca', texto: 'Toca hoy' })
+  assert.deepEqual(estadoCasa({ plan: 'Plan Turno Minero', mascotas: '  ' }, { inicio: haceDias(1) }, ahora),
+    { clave: 'al-dia', texto: 'Toca mañana' })
+  assert.deepEqual(estadoCasa({ plan: 'Plan Semanal' }, { inicio: haceDias(1) }, ahora),
+    { clave: 'toca', texto: 'Toca hoy' })
 })
 
 test('haceCuanto cuenta en días de Salta', () => {

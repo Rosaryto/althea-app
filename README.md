@@ -54,7 +54,7 @@ navegador del visitante y **no se conecta a la base real**.
 - **Agenda de turnos.** Bloques de horario programados por casa, con detección de
   solapes para no agendar dos casas en el mismo momento.
 - **Planes con frecuencia.** La pantalla de inicio calcula cuándo toca visitar
-  cada casa según su plan (diario, cada dos días o semanal).
+  cada casa según su plan (por día, semanal, quincenal, mensual o Turno Minero; todos los días si hay mascotas).
 - **Modo demo.** Una demo pública con datos de ejemplo que corre solo en el
   navegador (se entra con `?demo` o con el enlace "Ver una demo" del login). No
   accede a la base de datos real.

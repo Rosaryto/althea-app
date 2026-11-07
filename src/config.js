@@ -5,14 +5,13 @@ export const LEMA = 'Cuidamos lo que más querés.'
 export const A_CARGO = 'Virginia'
 export const MI_WHATSAPP = '5491149278087' // WhatsApp de Althea. 549 + código de área sin 0 + número sin 15. Vacío = no se muestra el botón.
 
-// Si hay mascotas, la visita es diaria: Plan Compañía o Turno Minero con mascotas.
+// Planes de Althea. Si la casa tiene mascotas, la visita es todos los días.
 export const PLANES = [
-  'Visita suelta',
-  'Plan Tranquilo',
-  'Plan Presente',
-  'Plan Compañía',
+  'Por día',
+  'Plan Semanal',
+  'Plan Quincenal',
+  'Plan Mensual',
   'Plan Turno Minero',
-  'Plan Turno Minero con mascotas',
 ]
 
 // Secciones que se revisan en la visita corta de mascotas (los días que no toca la visita completa).
