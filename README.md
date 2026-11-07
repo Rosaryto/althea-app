@@ -7,7 +7,7 @@
 <p align="center">
   Registro de visitas con lista de control y fotos, e informe privado para cada propietario.
   <br>
-  <a href="https://casa-habitada-salta.netlify.app/?demo"><strong>Ver demo en vivo »</strong></a>
+  <a href="https://althea-salta.netlify.app/?demo"><strong>Ver demo en vivo »</strong></a>
 </p>
 
 <p align="center">
@@ -32,10 +32,10 @@ de las casas, mientras que los dueños solo reciben un enlace de lectura.
 El acceso está restringido a cuentas autorizadas: no hay registro público ni
 entrada sin inicio de sesión.
 
-**En producción:** <https://casa-habitada-salta.netlify.app> (requiere inicio de
+**En producción:** <https://althea-salta.netlify.app> (requiere inicio de
 sesión con un correo autorizado).
 
-**Demo pública:** <https://casa-habitada-salta.netlify.app/?demo> (o el enlace
+**Demo pública:** <https://althea-salta.netlify.app/?demo> (o el enlace
 "Ver una demo" en la pantalla de login). Corre con datos de ejemplo en el
 navegador del visitante y **no se conecta a la base real**.
 
@@ -158,7 +158,7 @@ tests y build.
 El proyecto está enlazado a Netlify y publica automáticamente: cada push a la
 rama `master` dispara un build y un despliegue a producción.
 
-**Sitio en producción:** <https://casa-habitada-salta.netlify.app> (requiere
+**Sitio en producción:** <https://althea-salta.netlify.app> (requiere
 inicio de sesión con un correo autorizado).
 
 - Comando de build: `pnpm run build`
