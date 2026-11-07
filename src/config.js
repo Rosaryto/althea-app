@@ -1,9 +1,9 @@
 // ===== Configuración general: cambiá acá el nombre y tu WhatsApp =====
-export const MARCA = 'Casa Habitada'
-export const LEMA = 'No dejo tu casa vacía. La cuido por vos.'
+export const MARCA = 'Althea'
+export const LEMA = 'Cuidamos lo que más querés.'
 // Nombre de quien está a cargo: aparece en el informe del dueño ("Escribirle a Virginia").
 export const A_CARGO = 'Virginia'
-export const MI_WHATSAPP = '5493815539646' // de prueba. 549 + código de área sin 0 + número sin 15. Vacío = no se muestra el botón.
+export const MI_WHATSAPP = '5491149278087' // WhatsApp de Althea. 549 + código de área sin 0 + número sin 15. Vacío = no se muestra el botón.
 
 // Si hay mascotas, la visita es diaria: Plan Compañía o Turno Minero con mascotas.
 export const PLANES = [

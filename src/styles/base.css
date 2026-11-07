@@ -14,4 +14,5 @@ svg { flex: none; }
 .error { color: var(--danger); font-weight: 600; font-size: var(--t-xs); margin: 8px 0; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-.marca-icono { display: grid; place-items: center; border-radius: 9px; background: var(--primary); color: var(--on-primary); flex: none; }
+.marca-icono { display: grid; place-items: center; border-radius: 9px; background: #fbf7ef; flex: none; overflow: hidden; }
+.marca-icono img { width: 88%; height: 88%; object-fit: contain; }

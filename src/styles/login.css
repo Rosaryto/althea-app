@@ -5,5 +5,8 @@
 .login-foto::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, var(--bg)); }
 .login-cuerpo { position: relative; max-width: 440px; width: 100%; margin: -48px auto 0; padding: 0 24px 32px; display: grid; align-content: start; gap: 8px; }
 .login-cuerpo h1 { margin-top: 16px; }
+.login-logo { margin: 0 auto; }
+.login-logo img { display: block; width: min(240px, 62vw); height: auto; filter: drop-shadow(0 6px 18px rgb(0 0 0 / .18)); }
+.login-cuerpo > p { text-align: center; }
 .login-cuerpo > p { color: var(--muted); }
 .login-cuerpo form { display: grid; gap: 16px; margin-top: 24px; }

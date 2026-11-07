@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="public/favicon.svg" width="72" alt="Casa Habitada">
+  <img src="public/isotipo.png" width="96" alt="Althea">
 </p>
 
-<h1 align="center">Casa Habitada · App de informes</h1>
+<h1 align="center">Althea · Hogar &amp; Mascotas · App de informes</h1>
 
 <p align="center">
   Registro de visitas con lista de control y fotos, e informe privado para cada propietario.
@@ -22,7 +22,7 @@
 
 ## Descripción
 
-Aplicación web para el servicio de cuidado de casas **Casa Habitada**. Permite
+Aplicación web para el servicio de cuidado de casas y mascotas **Althea · Hogar & Mascotas** (antes Casa Habitada). Permite
 registrar cada visita con una lista de control y fotos, y ofrece a cada
 propietario un informe online mediante un enlace privado.
 
@@ -195,4 +195,4 @@ de control base se editan en `src/config.js`.
 
 ---
 
-Proyecto privado de Casa Habitada. Todos los derechos reservados.
+Proyecto privado de Althea · Hogar & Mascotas. Todos los derechos reservados.

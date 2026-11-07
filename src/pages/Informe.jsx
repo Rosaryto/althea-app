@@ -94,7 +94,7 @@ export default function Informe() {
           <WhatsappLogo size={20} weight="fill" /> {A_CARGO ? `Escribirle a ${A_CARGO}` : 'Escribir por WhatsApp'}
         </a>
       </footer>}
-      <p className="informe-firma">{MARCA} · Cuidado de casas en Salta y alrededores</p>
+      <p className="informe-firma">{MARCA} · Hogar &amp; Mascotas · Salta y alrededores</p>
     </main>
   )
 }

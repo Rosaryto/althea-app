@@ -200,7 +200,7 @@ export default function NuevaVisita() {
           <ol>
             <li>Revisá cada punto y marcá <b>Bien</b>, <b>Problema</b> o <b>No hay</b> (si esa casa no lo tiene).</li>
             <li>Si marcás Problema, escribí qué pasó. Si querés, sacá una foto.</li>
-            <li>Al final tocá el botón verde de abajo, <b>Terminar visita</b>, y se arma el mensaje para el dueño.</li>
+            <li>Al final tocá el botón de abajo, <b>Terminar visita</b>, y se arma el mensaje para el dueño.</li>
           </ol>
           <button type="button" className="btn chico sec" onClick={() => { setGuiaVista(true); try { localStorage.setItem('guia-visita-vista', '1') } catch { /* sin almacenamiento */ } }}>Entendido</button>
         </div>
