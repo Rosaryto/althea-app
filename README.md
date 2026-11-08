@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="public/favicon.svg" width="72" alt="Casa Habitada">
+  <img src="public/isotipo.png" width="96" alt="Althea">
 </p>
 
-<h1 align="center">Casa Habitada · App de informes</h1>
+<h1 align="center">Althea · Hogar &amp; Mascotas · App de informes</h1>
 
 <p align="center">
   Registro de visitas con lista de control y fotos, e informe privado para cada propietario.
   <br>
-  <a href="https://casa-habitada-salta.netlify.app/?demo"><strong>Ver demo en vivo »</strong></a>
+  <a href="https://althea-salta.netlify.app/?demo"><strong>Ver demo en vivo »</strong></a>
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
 
 ## Descripción
 
-Aplicación web para el servicio de cuidado de casas **Casa Habitada**. Permite
+Aplicación web para el servicio de cuidado de casas y mascotas **Althea · Hogar & Mascotas** (antes Casa Habitada). Permite
 registrar cada visita con una lista de control y fotos, y ofrece a cada
 propietario un informe online mediante un enlace privado.
 
@@ -32,10 +32,10 @@ de las casas, mientras que los dueños solo reciben un enlace de lectura.
 El acceso está restringido a cuentas autorizadas: no hay registro público ni
 entrada sin inicio de sesión.
 
-**En producción:** <https://casa-habitada-salta.netlify.app> (requiere inicio de
+**En producción:** <https://althea-salta.netlify.app> (requiere inicio de
 sesión con un correo autorizado).
 
-**Demo pública:** <https://casa-habitada-salta.netlify.app/?demo> (o el enlace
+**Demo pública:** <https://althea-salta.netlify.app/?demo> (o el enlace
 "Ver una demo" en la pantalla de login). Corre con datos de ejemplo en el
 navegador del visitante y **no se conecta a la base real**.
 
@@ -54,7 +54,7 @@ navegador del visitante y **no se conecta a la base real**.
 - **Agenda de turnos.** Bloques de horario programados por casa, con detección de
   solapes para no agendar dos casas en el mismo momento.
 - **Planes con frecuencia.** La pantalla de inicio calcula cuándo toca visitar
-  cada casa según su plan (diario, cada dos días o semanal).
+  cada casa según su plan (por día, semanal, quincenal, mensual o Turno Minero; todos los días si hay mascotas).
 - **Modo demo.** Una demo pública con datos de ejemplo que corre solo en el
   navegador (se entra con `?demo` o con el enlace "Ver una demo" del login). No
   accede a la base de datos real.
@@ -158,7 +158,7 @@ tests y build.
 El proyecto está enlazado a Netlify y publica automáticamente: cada push a la
 rama `master` dispara un build y un despliegue a producción.
 
-**Sitio en producción:** <https://casa-habitada-salta.netlify.app> (requiere
+**Sitio en producción:** <https://althea-salta.netlify.app> (requiere
 inicio de sesión con un correo autorizado).
 
 - Comando de build: `pnpm run build`
@@ -195,4 +195,4 @@ de control base se editan en `src/config.js`.
 
 ---
 
-Proyecto privado de Casa Habitada. Todos los derechos reservados.
+Proyecto privado de Althea · Hogar & Mascotas. Todos los derechos reservados.

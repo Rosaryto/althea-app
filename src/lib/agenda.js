@@ -1,21 +1,29 @@
 import { tz } from './formato.js'
 
 // Cada cuántos días toca visitar una casa según su plan.
+// Si la casa tiene mascotas, se va todos los días (ver estadoCasa).
 const INTERVALO = {
+  'Plan Semanal': 1,
+  'Plan Quincenal': 1,
+  'Plan Mensual': 2,
+  'Plan Turno Minero': 2,
+  // Planes anteriores (Casa Habitada): siguen funcionando en las casas ya cargadas.
   'Plan Compañía': 1,
   'Plan Turno Minero con mascotas': 1,
   'Plan Presente': 2,
-  'Plan Turno Minero': 2,
   'Plan Tranquilo': 7,
 }
+const SIN_FRECUENCIA = ['Por día', 'Visita suelta']
+const tieneMascotas = (casa) => Boolean(casa.mascotas && casa.mascotas.trim())
 const diaDe = (fecha) => new Date(fecha).toLocaleDateString('en-CA', { timeZone: tz }) // AAAA-MM-DD
 const diasEntre = (a, b) => Math.round((new Date(diaDe(b)) - new Date(diaDe(a))) / 864e5)
 
 // Estado de una casa para la pantalla de inicio.
 export function estadoCasa(casa, ultima, ahora = Date.now()) {
-  const cada = INTERVALO[casa.plan]
+  const base = INTERVALO[casa.plan]
+  const cada = base && tieneMascotas(casa) ? 1 : base
   if (ultima && diasEntre(ultima.inicio, ahora) === 0) return { clave: 'hecha', texto: 'Visitada hoy' }
-  if (!cada) return { clave: 'libre', texto: casa.plan === 'Visita suelta' ? 'Visita suelta' : 'Sin plan fijo' }
+  if (!cada) return { clave: 'libre', texto: SIN_FRECUENCIA.includes(casa.plan) ? casa.plan : 'Sin plan fijo' }
   if (!ultima) return { clave: 'toca', texto: 'Primera visita' }
   const pasaron = diasEntre(ultima.inicio, ahora)
   if (pasaron >= cada) return { clave: 'toca', texto: pasaron > cada ? `Atrasada ${pasaron - cada} ${pasaron - cada === 1 ? 'día' : 'días'}` : 'Toca hoy' }

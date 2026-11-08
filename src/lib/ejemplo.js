@@ -15,7 +15,7 @@ export const CASA_EJEMPLO = {
   direccion: 'La Almudena, San Lorenzo',
   dueno_nombre: 'Mercedes Arias',
   dueno_telefono: '',
-  plan: 'Plan Compañía',
+  plan: 'Plan Quincenal',
   mascotas: 'Toto (ovejero) y Luna (gata)',
   notas: 'Llave en el llavero verde. Piletero: Ramón, pasa los jueves.',
   checklist: CHECKLIST_BASE,

@@ -9,12 +9,11 @@ import Barra from '../components/Barra.jsx'
 
 // Frecuencia de cada plan, para elegirlo tocando.
 const DETALLE_PLAN = {
-  'Visita suelta': 'Cuando la pidan',
-  'Plan Tranquilo': '1 visita por semana',
-  'Plan Presente': '3 visitas por semana',
-  'Plan Compañía': 'Todos los días, con mascotas',
-  'Plan Turno Minero': 'Durante el turno, 3 por semana',
-  'Plan Turno Minero con mascotas': 'Durante el turno, todos los días',
+  'Por día': 'Una visita, cuando la pidan',
+  'Plan Semanal': '7 días, una visita diaria',
+  'Plan Quincenal': '15 días, una visita diaria',
+  'Plan Mensual': 'Todo el mes, 3 visitas por semana (diaria con mascotas)',
+  'Plan Turno Minero': 'Según la rotación, 3 por semana (diaria con mascotas)',
 }
 
 const VACIA = {
@@ -22,7 +21,7 @@ const VACIA = {
   dueno_nombre: '',
   dueno_telefono: '',
   direccion: '',
-  plan: 'Plan Presente',
+  plan: 'Plan Semanal',
   mascotas: '',
   notas: '',
   checklist: CHECKLIST_BASE,
