@@ -11,11 +11,11 @@ export default function Barra({ volver, titulo, subtitulo, derecha }) {
       {volver ? (
         <Link to={volver} className="icono" aria-label="Volver"><ArrowLeft size={22} /></Link>
       ) : (
-        <span className="barra-marca">
-          <Logo tam={28} /> {MARCA}
+        <span className={`barra-marca${modoDemoForzado ? ' con-demo' : ''}`}>
+          <Logo tam={28} /> <span className="marca-txt">{MARCA}</span>
           {modoDemo && <span className="pill-demo">Demo</span>}
           {modoDemoForzado && (
-            <button type="button" className="link" style={{ fontSize: 'var(--t-xs)' }} onClick={salirDelDemo}>
+            <button type="button" className="link salir-demo" onClick={salirDelDemo}>
               Salir del demo
             </button>
           )}

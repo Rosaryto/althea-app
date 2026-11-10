@@ -24,3 +24,11 @@
 /* firma de Lambda Lab Norte */
 .firma-lambda { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; margin-top: 28px; padding-bottom: 8px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .firma-lambda img { height: 14px; width: auto; opacity: .85; }
+
+/* barra de arriba en celulares angostos: que nada se corte */
+.barra-der .btn.chico { white-space: nowrap; }
+.salir-demo { font-size: var(--t-xs); white-space: nowrap; }
+@media (max-width: 430px) {
+  .barra-der .txt-ancho { display: none; }
+  .barra-marca.con-demo .marca-txt, .barra-marca.con-demo .pill-demo { display: none; }
+}

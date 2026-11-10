@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="public/isotipo.png" width="96" alt="Althea">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/logo-althea-blanco.png">
+    <img src="public/logo-althea.png" width="220" alt="Althea · Hogar &amp; Mascotas · Viajá tranquilo">
+  </picture>
 </p>
 
 <h1 align="center">Althea · Hogar &amp; Mascotas · App de informes</h1>
@@ -207,4 +210,12 @@ La app está pensada para poder venderse a otros negocios de cuidado de casas. P
 
 Por ejemplo, la misma app puede salir como **Casa Habitada** u otro nombre, cada una con su propia base de datos en Supabase.
 
-Plataforma realizada por **Lambda Lab Norte**.
+---
+
+<p align="center">
+  Plataforma realizada por<br><br>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/lambda-lab-norte-blanco.webp">
+    <img src="public/lambda-lab-norte-negro.webp" width="200" alt="Lambda Lab Norte">
+  </picture>
+</p>

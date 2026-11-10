@@ -47,7 +47,7 @@ export default function Casas({ onSalir }) {
   const barra = (
     <Barra derecha={
       <>
-        <Link to="/agenda" className="btn chico sec"><CalendarBlank size={16} weight="bold" /> Agenda</Link>
+        <Link to="/agenda" className="btn chico sec" aria-label="Agenda"><CalendarBlank size={16} weight="bold" /> <span className="txt-ancho">Agenda</span></Link>
         <Link to="/casa/nueva" className="btn chico"><Plus size={16} weight="bold" /> Agregar casa</Link>
       </>
     } />
