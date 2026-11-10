@@ -10,7 +10,7 @@ import * as nube from './supabase.js'
 // equipo) o si se pide con "?demo" en la dirección. Ese segundo caso sirve para
 // mostrar la app desde el sitio publicado SIN tocar la base real: usa solo el
 // navegador de quien mira. La elección queda guardada en la pestaña.
-const CLAVE_DEMO = 'casa-habitada-demo-pedido'
+const CLAVE_DEMO = 'althea-demo-pedido'
 
 function pidieronDemo() {
   try {

@@ -52,7 +52,7 @@ Expected: aparece `node_modules`, `dist`, `.env` (ya está versionado en el proy
 ```powershell
 git init
 git add -A
-git commit -m "chore: estado base de Casa Habitada (refactor e informe previos)"
+git commit -m "chore: estado base de la app (refactor e informe previos)"
 ```
 
 - [ ] **Step 3: Verificar**

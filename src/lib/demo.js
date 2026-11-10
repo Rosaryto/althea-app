@@ -5,7 +5,7 @@ import { CASA_EJEMPLO, visitasEjemplo } from './ejemplo.js'
 import { tz } from './formato.js'
 import { primerChoque, mensajeChoque } from './disponibilidad.js'
 
-const LS = 'casa-habitada-demo'
+const LS = 'althea-demo'
 const CLAVE_SESION = LS + '-sesion'
 
 export const modoDemo = true

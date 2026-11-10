@@ -5,7 +5,7 @@ Estado: pendiente de aprobación del usuario
 
 ## Contexto y objetivo
 
-Casa Habitada registra visitas hechas (nacen al apretar "Empezar visita") y calcula "te toca hoy" a partir de los planes de cada casa. No existe forma de planificar: la usuaria quiere saber, antes de agendar una casa, qué horarios ya están ocupados ese día.
+La app registra visitas hechas (nacen al apretar "Empezar visita") y calcula "te toca hoy" a partir de los planes de cada casa. No existe forma de planificar: la usuaria quiere saber, antes de agendar una casa, qué horarios ya están ocupados ese día.
 
 Objetivo: una pantalla **Agenda** donde se cargan bloques `{casa, inicio, fin}` por día, se ven los huecos libres de un vistazo, y el sistema **bloquea con dureza** cualquier bloque que pise a otro.
 
@@ -61,7 +61,7 @@ Sin columna de estado: un bloque pasado se ve apagado por fecha sola; se edita o
 - `guardarProgramacion({ id?, casa_id, inicio, fin })` — crea o mueve. **Revalida el solape contra los bloques existentes del día antes de escribir**; si hay conflicto, lanza error con mensaje apto para mostrar ("La Casa Los Álamos ya ocupa de 9:00 a 11:00"). Devuelve el registro guardado.
 - `borrarProgramacion(id)`.
 
-Modo demo: se guardan en la misma base de `localStorage` (`casa-habitada-demo`), con validación de solape idéntica usando la misma lógica pura (ver §2). `borrarCasa` en demo debe filtrar también sus `programaciones`.
+Modo demo: se guardan en la misma base de `localStorage` (`althea-demo`), con validación de solape idéntica usando la misma lógica pura (ver §2). `borrarCasa` en demo debe filtrar también sus `programaciones`.
 
 Modo Supabase: consultas a `.from('programaciones')`, con `order('inicio')` y filtro por rango de `inicio`.
 

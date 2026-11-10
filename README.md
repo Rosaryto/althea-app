@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Rosaryto/casa-habitada-app/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Rosaryto/casa-habitada-app/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/Rosaryto/althea-app/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Rosaryto/althea-app/actions/workflows/ci.yml/badge.svg"></a>
   <img alt="React 19" src="https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white">
   <img alt="Vite 8" src="https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white">
   <img alt="Supabase" src="https://img.shields.io/badge/Supabase-Auth%20%C2%B7%20Postgres%20%C2%B7%20Storage-3ecf8e?logo=supabase&logoColor=white">
@@ -22,7 +22,7 @@
 
 ## Descripción
 
-Aplicación web para el servicio de cuidado de casas y mascotas **Althea · Hogar & Mascotas** (antes Casa Habitada). Permite
+Aplicación web para el servicio de cuidado de casas y mascotas **Althea · Hogar & Mascotas**. Permite
 registrar cada visita con una lista de control y fotos, y ofrece a cada
 propietario un informe online mediante un enlace privado.
 
@@ -128,7 +128,7 @@ nunca debe incluirse en la app.
 ## Estructura del proyecto
 
 ```
-casa-habitada-app/
+althea-app/
 ├── public/              Archivos estáticos (íconos, manifest)
 ├── src/
 │   ├── components/      Componentes reutilizables
@@ -196,3 +196,15 @@ de control base se editan en `src/config.js`.
 ---
 
 Proyecto privado de Althea · Hogar & Mascotas. Todos los derechos reservados.
+
+## Usarla con otra marca
+
+La app está pensada para poder venderse a otros negocios de cuidado de casas. Para cambiar la marca alcanza con:
+
+1. `src/config.js`: nombre (`MARCA`), lema, persona a cargo, WhatsApp y planes.
+2. `public/`: logos e íconos.
+3. `src/styles/tokens.css`: colores.
+
+Por ejemplo, la misma app puede salir como **Casa Habitada** u otro nombre, cada una con su propia base de datos en Supabase.
+
+Plataforma realizada por **Lambda Lab Norte**.

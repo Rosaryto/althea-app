@@ -1,4 +1,4 @@
--- Casa Habitada: Agenda (bloques de horarios programados).
+-- Althea: Agenda (bloques de horarios programados).
 -- SOLO para una base que ya tiene "casas" y "visitas" (tu caso).
 -- Pegá todo esto en Supabase > SQL Editor > New query y tocá "Run".
 

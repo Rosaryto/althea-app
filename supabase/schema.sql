@@ -1,4 +1,4 @@
--- Casa Habitada: base de datos para Supabase.
+-- Althea: base de datos para Supabase.
 -- Pegá todo esto en Supabase > SQL Editor > New query y tocá "Run".
 
 -- ---------- Casas ----------
