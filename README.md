@@ -202,13 +202,18 @@ Proyecto privado de Althea · Hogar & Mascotas. Todos los derechos reservados.
 
 ## Usarla con otra marca
 
-La app está pensada para poder venderse a otros negocios de cuidado de casas. Para cambiar la marca alcanza con:
+La app está pensada para poder venderse a otros negocios de cuidado de casas, con licencia de Lambda Lab Norte. Para cambiar la marca alcanza con:
 
 1. `src/config.js`: nombre (`MARCA`), lema, persona a cargo, WhatsApp y planes.
 2. `public/`: logos e íconos.
 3. `src/styles/tokens.css`: colores.
 
 Por ejemplo, la misma app puede salir como **Casa Habitada** u otro nombre, cada una con su propia base de datos en Supabase.
+
+
+## Licencia
+
+© 2026 Lambda Lab Norte. Todos los derechos reservados. El código está visible como muestra de trabajo, pero no se puede copiar, usar ni modificar sin autorización. Ver [LICENSE](LICENSE).
 
 ---
 
