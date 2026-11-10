@@ -7,14 +7,14 @@ import { numeroWhatsApp } from '../lib/formato.js'
 import Esqueleto from '../components/Esqueleto.jsx'
 import Barra from '../components/Barra.jsx'
 
-// Frecuencia de cada plan, para elegirlo tocando.
+// Qué incluye cada plan y su precio (de los folletos de Althea).
 const DETALLE_PLAN = {
-  'Visita suelta': 'Cuando la pidan',
-  'Plan Tranquilo': '1 visita por semana',
-  'Plan Presente': '3 visitas por semana',
-  'Plan Compañía': 'Todos los días, con mascotas',
-  'Plan Turno Minero': 'Durante el turno, 3 por semana',
-  'Plan Turno Minero con mascotas': 'Durante el turno, todos los días',
+  'Plan Esencial': 'Solo la casa · $12.000 por visita',
+  'Plan Mascotas': 'Casa y mascotas · $18.000 por día',
+  'Plan Semanal': '7 días, todo incluido · $170.000',
+  'Plan Quincenal': '15 días, todo incluido · $190.000',
+  'Plan Mensual': 'Todo el mes',
+  'Plan Turno Minero': 'Según la rotación del dueño',
 }
 
 const VACIA = {
@@ -22,7 +22,7 @@ const VACIA = {
   dueno_nombre: '',
   dueno_telefono: '',
   direccion: '',
-  plan: 'Plan Presente',
+  plan: 'Plan Esencial',
   mascotas: '',
   notas: '',
   checklist: CHECKLIST_BASE,
@@ -133,17 +133,17 @@ export default function CasaForm() {
 
         <h2 className="sec-titulo paso"><span>3</span> Mascotas</h2>
         <div className="bloque form">
-          <label>¿Qué mascotas hay?<input {...campo('mascotas')} placeholder="Toto (labrador) y Luna (gata)" /><span className="ayuda">Si no hay, dejalo vacío. Si hay, la visita es todos los días.</span></label>
+          <label>¿Qué mascotas hay?<input {...campo('mascotas')} placeholder="Toto (labrador) y Luna (gata)" /><span className="ayuda">Si hay mascotas, te toca ir todos los días. Si no hay, dejalo vacío y te toca día por medio.</span></label>
         </div>
 
         <h2 className="sec-titulo paso"><span>4</span> Plan contratado</h2>
-        <p className="ayuda-sec">Define cada cuántos días te toca ir. La app te avisa en el inicio.</p>
+        <p className="ayuda-sec">Lo que contrató el dueño. Cada cuánto ir lo define si hay mascotas o no.</p>
         <div className="planes-opciones" role="radiogroup" aria-label="Plan">
           {PLANES.map((p) => (
             <button key={p} type="button" role="radio" aria-checked={casa.plan === p}
               className={`plan-opcion ${casa.plan === p ? 'activo' : ''}`} onClick={() => setCasa({ ...casa, plan: p })}>
               <b>{p.replace('Plan ', '')}</b>
-              <span>{DETALLE_PLAN[p]}</span>
+              {DETALLE_PLAN[p] && <span>{DETALLE_PLAN[p]}</span>}
             </button>
           ))}
         </div>

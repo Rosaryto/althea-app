@@ -7,3 +7,6 @@
 .login-cuerpo h1 { margin-top: 16px; }
 .login-cuerpo > p { color: var(--muted); }
 .login-cuerpo form { display: grid; gap: 16px; margin-top: 24px; }
+
+.login-logo { margin: 0 auto; }
+.login-logo img { display: block; width: min(240px, 62vw); height: auto; filter: drop-shadow(0 6px 18px rgb(0 0 0 / .18)); }

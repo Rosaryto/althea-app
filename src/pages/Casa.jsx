@@ -122,7 +122,7 @@ ${MARCA}`)}>
         <h2 className="sec-titulo">Visitas anteriores <span className="muted t-xs mono">{visitas.length}</span></h2>
         {errorAccion && <p className="error" role="alert">{errorAccion}</p>}
         {visitas.length === 0 ? (
-          <p className="muted">Todavía no hay visitas. Cuando llegues a la casa, tocá el botón verde de abajo, Empezar visita.</p>
+          <p className="muted">Todavía no hay visitas. Cuando llegues a la casa, tocá el botón azul de abajo, Empezar visita.</p>
         ) : (
           <ol className="timeline">
             {visitas.map((v, i) => (

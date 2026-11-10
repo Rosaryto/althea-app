@@ -7,6 +7,7 @@ import { haceCuanto } from '../lib/agenda.js'
 import { A_CARGO, MARCA, MI_WHATSAPP } from '../config.js'
 import VisitaDetalle, { Fotos } from '../components/VisitaDetalle.jsx'
 import Logo from '../components/Logo.jsx'
+import Firma from '../components/Firma.jsx'
 
 // Página que ve el dueño de la casa. No necesita usuario: entra con su link.
 export default function Informe() {
@@ -95,6 +96,7 @@ export default function Informe() {
         </a>
       </footer>}
       <p className="informe-firma">{MARCA} · Cuidado de casas en Salta y alrededores</p>
+      <Firma />
     </main>
   )
 }

@@ -20,3 +20,7 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* firma de Lambda Lab Norte */
+.firma-lambda { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; margin-top: 28px; padding-bottom: 8px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.firma-lambda img { height: 14px; width: auto; opacity: .85; }

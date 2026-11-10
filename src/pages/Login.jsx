@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { EnvelopeSimple } from '@phosphor-icons/react'
 import { entrar, mandarLinkDeEntrada, modoDemo } from '../lib/store.js'
 import { MARCA, LEMA } from '../config.js'
-import Logo from '../components/Logo.jsx'
+import Firma from '../components/Firma.jsx'
 
 const FOTO = 'https://images.unsplash.com/photo-1652878856832-887df545cb0c?w=900&q=70&fm=webp&fit=crop'
 
@@ -37,8 +37,12 @@ export default function Login({ onEntrar }) {
     <main className="login">
       <div className="login-foto"><img src={FOTO} alt="" /></div>
       <div className="login-cuerpo">
-        <Logo tam={48} />
-        <h1>{MARCA}</h1>
+        <h1 className="login-logo">
+          <picture>
+            <source srcSet="./logo-althea-blanco.png" media="(prefers-color-scheme: dark)" />
+            <img src="./logo-althea.png" alt={`${MARCA} · Hogar & Mascotas`} />
+          </picture>
+        </h1>
         <p>{LEMA}</p>
 
         {enviado ? (
@@ -80,6 +84,7 @@ export default function Login({ onEntrar }) {
             )}
           </form>
         )}
+        <Firma />
       </div>
     </main>
   )

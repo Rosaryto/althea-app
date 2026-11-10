@@ -6,6 +6,7 @@ import { estadoCasa, haceCuanto, saludo } from '../lib/agenda.js'
 import { fechaLarga } from '../lib/formato.js'
 import Barra from '../components/Barra.jsx'
 import Esqueleto from '../components/Esqueleto.jsx'
+import Firma from '../components/Firma.jsx'
 
 const HOY_TEXTO = fechaLarga(new Date().toISOString())
 
@@ -117,6 +118,7 @@ export default function Casas({ onSalir }) {
         <div className="cerrar-sesion">
           <button className="link" onClick={onSalir}><SignOut size={16} /> Cerrar sesión</button>
         </div>
+        <Firma />
       </main>
     </>
   )

@@ -1,21 +1,18 @@
 import { tz } from './formato.js'
 
-// Cada cuántos días toca visitar una casa según su plan.
-const INTERVALO = {
-  'Plan Compañía': 1,
-  'Plan Turno Minero con mascotas': 1,
-  'Plan Presente': 2,
-  'Plan Turno Minero': 2,
-  'Plan Tranquilo': 7,
-}
+// Cada cuántos días toca visitar una casa.
+// Con mascotas hay que ir todos los días (comida, agua, juego, paseo); sin mascotas, día por medio.
+// "Por día" o "Visita suelta": solo cuando el dueño la pide.
+const A_PEDIDO = ['Por día', 'Visita suelta']
+const intervalo = (casa) => (A_PEDIDO.includes(casa.plan) ? null : casa.mascotas?.trim() ? 1 : 2)
 const diaDe = (fecha) => new Date(fecha).toLocaleDateString('en-CA', { timeZone: tz }) // AAAA-MM-DD
 const diasEntre = (a, b) => Math.round((new Date(diaDe(b)) - new Date(diaDe(a))) / 864e5)
 
 // Estado de una casa para la pantalla de inicio.
 export function estadoCasa(casa, ultima, ahora = Date.now()) {
-  const cada = INTERVALO[casa.plan]
+  const cada = intervalo(casa)
   if (ultima && diasEntre(ultima.inicio, ahora) === 0) return { clave: 'hecha', texto: 'Visitada hoy' }
-  if (!cada) return { clave: 'libre', texto: casa.plan === 'Visita suelta' ? 'Visita suelta' : 'Sin plan fijo' }
+  if (!cada) return { clave: 'libre', texto: 'Visita a pedido' }
   if (!ultima) return { clave: 'toca', texto: 'Primera visita' }
   const pasaron = diasEntre(ultima.inicio, ahora)
   if (pasaron >= cada) return { clave: 'toca', texto: pasaron > cada ? `Atrasada ${pasaron - cada} ${pasaron - cada === 1 ? 'día' : 'días'}` : 'Toca hoy' }
