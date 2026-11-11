@@ -1,0 +1,188 @@
+/*
+  Estilo de la web de Althea aplicado a la app.
+  Mismas tipografías (Fraunces, Manrope, IBM Plex Mono), misma paleta
+  (noche, papel y oro) y los mismos recursos: etiquetas en mono con
+  espaciado ancho, títulos en Fraunces con acento en cursiva dorada
+  y botones principales dorados en píldora.
+  Va al final de la cascada: pisa lo que haga falta sin tocar el resto.
+*/
+:root {
+  --noche: #0c1830;
+  --noche-2: #14264a;
+  --oro: #d0a95e;
+  --oro-claro: #ecd29a;
+  --display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+
+  --bg: #f6efe1;
+  --surface: #fffaf0;
+  --surface-2: #f1e6cf;
+  --line: #e3d5b8;
+  --ink: #13213d;
+  --ink-80: rgb(19 33 61 / .8);
+  --muted: #5a6274;
+  --primary: #0c1830;
+  --primary-hover: #14264a;
+  --primary-5: rgb(12 24 48 / .06);
+  --on-primary: #f7f1e4;
+  --accent: #d0a95e;
+  --accent-soft: #f4e6c8;
+  --accent-ink: #7a5a1c;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --r: 22px;
+  font-family: 'Manrope Variable', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c1830;
+    --surface: #14264a;
+    --surface-2: #1b3059;
+    --line: #2a3d66;
+    --ink: #f7f1e4;
+    --ink-80: rgb(247 241 228 / .82);
+    --muted: #b9c3d8;
+    --primary: #d0a95e;
+    --primary-hover: #ecd29a;
+    --primary-5: rgb(208 169 94 / .1);
+    --on-primary: #0c1830;
+    --accent: #d0a95e;
+    --accent-soft: #3a2f17;
+    --accent-ink: #ecd29a;
+  }
+}
+
+/* ---------- tipografía ---------- */
+h1, .sec-titulo, .estado-casa h2, .vacio h2, .terminada h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: 'opsz' 96;
+  letter-spacing: -0.02em;
+}
+h1 { font-size: 34px; line-height: 1.05; }
+.sec-titulo { font-size: 24px; line-height: 1.1; }
+.sec-titulo .contador, .sec-titulo .mono { font-family: var(--mono); }
+.mono { letter-spacing: 0; }
+
+/* etiqueta tipo web: mono, mayúsculas, dorado y con una rayita */
+.saludo .fecha, .para-quien, .tl-cuerpo h4 {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-weight: 600; font-size: 11px;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--accent-ink);
+}
+.saludo .fecha::before, .para-quien::before { content: ''; width: 22px; height: 1.5px; background: currentColor; flex: none; }
+
+/* ---------- inicio: cabecera azul noche como la portada de la web ---------- */
+body:has(.saludo) .barra { background: var(--noche); color: #f7f1e4; }
+body:has(.saludo) .barra .icono, body:has(.saludo) .barra .link { color: #f7f1e4; }
+body:has(.saludo) .barra .btn { background: var(--oro); color: var(--noche); }
+body:has(.saludo) .barra .btn.sec { background: rgb(255 255 255 / .08); color: #f7f1e4; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .25); }
+.saludo {
+  margin: -16px -16px 8px; padding: 28px 22px 34px;
+  background: radial-gradient(120% 90% at 90% 0%, #1d3566 0%, var(--noche-2) 40%, var(--noche) 100%);
+  color: #f7f1e4; border-radius: 0 0 28px 28px;
+}
+.saludo .fecha { color: var(--oro-claro); }
+.saludo h1 { font-size: 44px; margin: 14px 0 10px; color: #f7f1e4; }
+.saludo p { color: rgb(247 241 228 / .78); }
+.saludo p b { color: var(--oro-claro); }
+
+/* ---------- tarjetas ---------- */
+.casa-card, .bloque, .stat, .tl-card, .item, .item-listo { box-shadow: 0 1px 0 rgb(19 33 61 / .04), inset 0 0 0 1px var(--line); }
+.casa-info b { font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: -0.01em; }
+.stat b { font-family: var(--display); font-weight: 600; font-size: 24px; letter-spacing: -0.02em; }
+.stat span { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.resumen-visita .stat b { font-size: 20px; white-space: nowrap; }
+.tl-cab b { font-family: var(--display); font-weight: 600; font-size: 17px; }
+
+/* ---------- portada de la casa ---------- */
+.portada h1 { font-size: 40px; color: #f7f1e4; }
+.portada .chip { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.portada .chip.alerta { background: var(--oro); color: var(--noche); }
+.portada.sin-foto { background: radial-gradient(120% 90% at 90% 0%, #1d3566 0%, var(--noche-2) 45%, var(--noche) 100%); }
+
+/* ---------- botones: el principal dorado, como en la web ---------- */
+.btn.grande, .btn.wa { background: var(--oro); color: var(--noche); box-shadow: 0 10px 24px -12px rgb(208 169 94 / .9); }
+.btn.grande:hover, .btn.wa:hover { background: var(--oro-claro); }
+.btn { font-weight: 700; }
+.segmentos button.activo { background: var(--noche); color: #f7f1e4; }
+.seccion-cab h2 { font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: -0.01em; }
+.seccion-cab .btn-todo { background: var(--noche); color: var(--oro-claro); }
+.contador { background: var(--oro); color: var(--noche); }
+.cronometro { background: var(--noche); color: #f7f1e4; }
+
+/* ---------- visita terminada ---------- */
+.terminada h1 { font-size: 40px; font-style: italic; color: var(--accent-ink); }
+.festejo .check { background: var(--noche); color: var(--oro-claro); box-shadow: 0 14px 32px -10px rgb(12 24 48 / .6), 0 0 0 4px var(--oro); }
+.festejo .onda { background: var(--oro); }
+.chat { background: var(--surface-2); }
+.burbuja { background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+
+/* ---------- informe del dueño ---------- */
+.informe-top { font-family: var(--display); font-size: 18px; }
+.informe-top small { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; }
+.estado-casa.ok { background: var(--noche); color: #f7f1e4; }
+.estado-casa.ok > svg { color: var(--oro); }
+.estado-casa.ok h2 { color: #f7f1e4; }
+.estado-casa.ok p { color: rgb(247 241 228 / .8); }
+.estado-casa .estado-nota { font-family: var(--display); font-size: 17px; color: var(--oro-claro); }
+.informe-pie { background: var(--noche); color: #f7f1e4; }
+.informe-pie h2 { font-family: var(--display); font-weight: 500; font-size: 26px; }
+.informe-pie .muted, .informe-pie p { color: rgb(247 241 228 / .78); }
+
+/* ---------- login ---------- */
+.login-cuerpo > p:not(.firma-lambda) { font-family: var(--display); font-style: italic; font-size: 19px; color: var(--accent-ink); }
+
+/* ---------- pase de abordar (igual que el "Pase de tranquilidad" de la web) ---------- */
+.pase { margin-top: 16px; color: #13213d; filter: drop-shadow(0 18px 28px rgb(12 24 48 / .18)); animation: llega .8s var(--ease) both; }
+@keyframes llega { from { opacity: 0; transform: translateY(16px) rotate(-1.5deg); } }
+.pase-cuerpo { background: #fffaf0; border-radius: 18px 18px 0 0; overflow: hidden; }
+.pase-banda { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 18px; background: var(--noche); color: #f7f1e4; border-bottom: 3px solid var(--oro); }
+.pase-banda b { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .22em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.avion { width: 20px; height: 20px; fill: var(--oro); transform: rotate(45deg); flex: none; }
+.etq { display: block; font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .2em; color: #7a5a1c; }
+.pase-ruta { display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: 10px; padding: 16px 18px 6px; }
+.pase-ruta strong { font-family: var(--display); font-size: 34px; font-weight: 600; line-height: 1; letter-spacing: -.02em; }
+.pase-ruta .fin { text-align: right; }
+.pase-ruta .fin strong { font-style: italic; font-weight: 400; font-size: 24px; }
+.pase-ruta i { position: relative; height: 2px; margin-bottom: 14px; background: repeating-linear-gradient(90deg, var(--oro) 0 6px, transparent 6px 11px); }
+.pase-ruta i::before { content: ''; position: absolute; right: -2px; top: -3px; bottom: -3px; width: 100%; background: #fffaf0; animation: traza 1.8s cubic-bezier(.5, 0, .3, 1) .3s both; }
+.pase-ruta .vuela { position: absolute; top: -10px; left: 0; transform: rotate(90deg); animation: vuela 1.8s cubic-bezier(.5, 0, .3, 1) .3s both; }
+@keyframes traza { to { width: 0; } }
+@keyframes vuela { 0% { left: 0; } 100% { left: calc(100% - 20px); } }
+.pase-campos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; padding: 12px 18px 16px; font-weight: 700; font-size: 14px; line-height: 1.3; }
+.pase-campos .ancho { grid-column: 1 / -1; }
+.pase-campos .al { font-family: var(--display); font-size: 24px; font-weight: 600; }
+.pase-campos h2 { font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1.15; letter-spacing: -.01em; margin-top: 2px; }
+.pase-nota { padding: 0 18px 16px; }
+.pase-nota .estado-nota { font-family: var(--display); font-style: italic; font-size: 17px; color: #7a5a1c; }
+.pase-nota .estado-nov { font-weight: 700; }
+.perfo { height: 22px; background: #fffaf0; position: relative; }
+.perfo::before, .perfo::after { content: ''; position: absolute; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bg); }
+.perfo::before { left: -11px; } .perfo::after { right: -11px; }
+.perfo i { position: absolute; left: 18px; right: 18px; top: 10px; border-top: 2px dashed rgb(19 33 61 / .25); }
+.pase-pie { background: #fffaf0; border-radius: 0 0 18px 18px; padding: 4px 18px 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-weight: 700; font-size: 14px; }
+.pase-numeros b { font-family: var(--display); font-size: 20px; font-weight: 600; }
+.pase-numeros b.alerta { color: #b07a1c; }
+.barras { display: flex; gap: 2px; height: 34px; flex: none; }
+.barras span { background: #13213d; }
+.pase-informe.alerta .pase-banda { border-bottom-color: #e0a43a; }
+.pase-visita .resumen-visita { margin: 0; padding: 4px 18px 16px; }
+.pase-visita .stat { background: #f6efe1; box-shadow: none; }
+.pase-visita .stat b, .pase-visita .stat span { color: #13213d; }
+.terminada .pase { text-align: left; }
+
+/* ---------- inicio: cada casa como pasaje con talón ---------- */
+.casa-card {
+  --talon: 74px;
+  background:
+    radial-gradient(circle at calc(100% - var(--talon)) 0, var(--bg) 10px, transparent 10.5px),
+    radial-gradient(circle at calc(100% - var(--talon)) 100%, var(--bg) 10px, transparent 10.5px),
+    var(--surface);
+  padding-right: 0;
+}
+.casa-talon { align-self: stretch; width: var(--talon); margin: -12px 0; display: grid; place-content: center; justify-items: center; gap: 4px; border-left: 2px dashed var(--line); }
+.casa-talon b { font-family: var(--mono); font-weight: 600; font-size: 15px; letter-spacing: .08em; color: var(--ink); }
+.casa-talon .avion { width: 16px; height: 16px; }
+.casa-card .btn.chico { margin-right: 12px; }
+@media (prefers-color-scheme: dark) {
+  .pase-pie, .pase-cuerpo, .perfo { color: #13213d; }
+}

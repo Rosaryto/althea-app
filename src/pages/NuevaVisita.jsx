@@ -11,6 +11,7 @@ import Cronometro from '../components/Cronometro.jsx'
 import Festejo from '../components/Festejo.jsx'
 import Esqueleto from '../components/Esqueleto.jsx'
 import Barra from '../components/Barra.jsx'
+import Pase from '../components/Pase.jsx'
 
 const ESTADOS = [
   ['ok', 'Bien', Check],
@@ -152,14 +153,22 @@ export default function NuevaVisita() {
           <h1>{nov.length ? 'Visita terminada' : '¡Todo en orden!'}</h1>
           <p>{guardada.tipo === 'mascotas' ? 'Visita de mascotas' : 'Visita completa'}, de <span className="mono">{hora(guardada.inicio)}</span> a <span className="mono">{hora(guardada.fin)}</span></p>
 
-          <div className="resumen-visita">
-            <div className="stat"><b>{duracion(guardada.inicio, guardada.fin)}</b><span>duración</span></div>
-            <div className="stat"><b>{revisados}</b><span>revisados</span></div>
-            <div className={`stat ${nov.length ? 'alerta' : ''}`}><b>{nov.length}</b><span>{nov.length === 1 ? 'problema' : 'problemas'}</span></div>
-            <div className="stat"><b>{fotos}</b><span>fotos</span></div>
-          </div>
+          <Pase
+            className="pase-visita"
+            banda={`COMPROBANTE · ${casa.nombre.toUpperCase()}`}
+            desde={{ etiqueta: 'ENTRADA', valor: hora(guardada.inicio) }}
+            hacia={{ etiqueta: 'SALIDA', valor: hora(guardada.fin) }}
+            pie={<span className="etq">{guardada.tipo === 'mascotas' ? 'VISITA DE MASCOTAS' : 'VISITA COMPLETA'} · {duracion(guardada.inicio, guardada.fin).toUpperCase()}</span>}
+          >
+            <div className="resumen-visita">
+              <div className="stat"><b>{duracion(guardada.inicio, guardada.fin)}</b><span>duración</span></div>
+              <div className="stat"><b>{revisados}</b><span>revisados</span></div>
+              <div className={`stat ${nov.length ? 'alerta' : ''}`}><b>{nov.length}</b><span>{nov.length === 1 ? 'problema' : 'problemas'}</span></div>
+              <div className="stat"><b>{fotos}</b><span>fotos</span></div>
+            </div>
+          </Pase>
 
-          <p className="para-quien">{nombre ? `Este es el mensaje para ${nombre}. Mandalo con el botón verde de abajo.` : 'Este es el mensaje para el dueño. Copialo con el botón de abajo y mandáselo.'}</p>
+          <p className="para-quien">{nombre ? `Este es el mensaje para ${nombre}. Mandalo con el botón de abajo.` : 'Este es el mensaje para el dueño. Copialo con el botón de abajo y mandáselo.'}</p>
           <div className="chat"><pre className="burbuja">{texto}</pre></div>
           <div style={{ textAlign: 'center', marginTop: 24 }}>
             <Link to="/" className="link">Volver al inicio</Link>

@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { CalendarBlank, CaretRight, HouseLine, Info, PawPrint, Play, Plus, SignOut } from '@phosphor-icons/react'
+import { CalendarBlank, HouseLine, Info, PawPrint, Play, Plus, SignOut } from '@phosphor-icons/react'
 import { listarCasas, resumenVisitas, cargarEjemplo, modoDemo } from '../lib/store.js'
 import { estadoCasa, haceCuanto, saludo } from '../lib/agenda.js'
 import { fechaLarga } from '../lib/formato.js'
 import Barra from '../components/Barra.jsx'
 import Esqueleto from '../components/Esqueleto.jsx'
 import Firma from '../components/Firma.jsx'
+import { Avion } from '../components/Pase.jsx'
+import { codigoPlan } from '../lib/planes.js'
 
 const HOY_TEXTO = fechaLarga(new Date().toISOString())
 
@@ -26,7 +28,11 @@ function CasaCard({ casa, resumen, estado, i }) {
             {casa.mascotas && <span className="t-xs muted con-icono"><PawPrint size={14} /> Mascotas</span>}
           </span>
         </span>
-        {estado.clave !== 'toca' && <CaretRight size={18} className="muted" aria-hidden="true" />}
+        <span className="casa-talon" aria-hidden="true">
+          <span className="etq">SLA</span>
+          <Avion />
+          <b>{codigoPlan(casa.plan)}</b>
+        </span>
       </Link>
       {estado.clave === 'toca' && <Link to={`/casa/${casa.id}/visita`} className="btn chico"><Play size={14} weight="fill" /> Empezar visita</Link>}
     </li>
