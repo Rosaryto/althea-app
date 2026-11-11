@@ -91,7 +91,7 @@ export default function Informe() {
       {visitas.length > 0 && (
         <>
           <h2 className="sec-titulo">Todas las visitas</h2>
-          <p className="ayuda-sec">Tocá una visita para ver el detalle.</p>
+          <p className="ayuda-sec">Tocá una visita para ver el detalle. Las fotos se guardan 60 días.</p>
           <ol className="timeline">
             {visitas.map((v, i) => <VisitaDetalle key={v.id} visita={v} i={i} />)}
           </ol>
