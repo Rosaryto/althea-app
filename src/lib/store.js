@@ -9,16 +9,14 @@ import * as nube from './supabase.js'
 // El modo demo se activa solo si no hay Supabase configurado (desarrollo en tu
 // equipo) o si se pide con "?demo" en la dirección. Ese segundo caso sirve para
 // mostrar la app desde el sitio publicado SIN tocar la base real: usa solo el
-// navegador de quien mira. La elección queda guardada en la pestaña.
-const CLAVE_DEMO = 'althea-demo-pedido'
+// navegador de quien mira. No queda guardado: sin "?demo" en la dirección,
+// siempre se ve la app real.
+const CLAVE_DEMO = 'althea-demo-pedido' // la usaban versiones anteriores
 
 function pidieronDemo() {
   try {
-    if (new URLSearchParams(window.location.search).has('demo')) {
-      sessionStorage.setItem(CLAVE_DEMO, '1')
-      return true
-    }
-    return sessionStorage.getItem(CLAVE_DEMO) === '1'
+    sessionStorage.removeItem(CLAVE_DEMO)
+    return new URLSearchParams(window.location.search).has('demo')
   } catch {
     return false
   }
@@ -33,7 +31,6 @@ export const modoDemo = api.modoDemo
 
 // Sale del demo pedido y vuelve al login real (sin la marca "?demo").
 export function salirDelDemo() {
-  try { sessionStorage.removeItem(CLAVE_DEMO) } catch { /* sin almacenamiento */ }
   window.location.href = window.location.pathname
 }
 
