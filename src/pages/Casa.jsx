@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { ArrowLeft, Check, Copy, LinkSimple, PawPrint, PencilSimple, Play, User, WhatsappLogo } from '@phosphor-icons/react'
+import { ArrowLeft, Check, Copy, LinkSimple, PencilSimple, Play, WhatsappLogo } from '@phosphor-icons/react'
 import { obtenerCasa, listarVisitas, borrarVisita, modoDemo } from '../lib/store.js'
 import { linkInforme, linkWhatsApp, novedades } from '../lib/formato.js'
 import { estadoCasa, ultimaCorta } from '../lib/agenda.js'
@@ -8,6 +8,8 @@ import { MARCA } from '../config.js'
 import VisitaDetalle from '../components/VisitaDetalle.jsx'
 import Esqueleto from '../components/Esqueleto.jsx'
 import Barra from '../components/Barra.jsx'
+import Pase from '../components/Pase.jsx'
+import { codigoPlan } from '../lib/planes.js'
 
 export default function Casa() {
   const { id } = useParams()
@@ -73,29 +75,35 @@ export default function Casa() {
       </header>
 
       <main className="pantalla con-pie">
-        <div className="stats">
-          <div className="stat"><b>{delMes.length}</b><span>visitas en 30 días</span></div>
-          <div className={`stat ${novMes ? 'alerta' : ''}`}><b>{novMes}</b><span>{novMes === 1 ? 'problema encontrado' : 'problemas encontrados'} en 30 días</span></div>
-          <div className="stat"><b>{ultima ? ultimaCorta(ultima.inicio, ahora).valor : '-'}</b><span>{ultima ? ultimaCorta(ultima.inicio, ahora).detalle : 'sin visitas'}</span></div>
-        </div>
+        <Pase
+          className="pase-casa"
+          banda={`FICHA DE LA CASA · SLA · ${codigoPlan(casa.plan)}`}
+          desde={{ etiqueta: 'DESDE', valor: 'SLA' }}
+          hacia={{ etiqueta: 'HACIA', valor: (casa.direccion || casa.nombre).split(',').pop().trim() }}
+          campos={[
+            casa.dueno_nombre && { etiqueta: 'DUEÑO/A', valor: casa.dueno_nombre },
+            casa.plan && { etiqueta: 'PLAN', valor: casa.plan.replace(/^Plan /, '') },
+            casa.mascotas && { etiqueta: 'MASCOTAS · TODOS LOS DÍAS', valor: casa.mascotas, ancho: true },
+          ]}
+          pie={<>
+            <span className="etq">ÚLTIMOS 30 DÍAS</span>
+            <span className="pase-numeros">
+              <b>{delMes.length}</b> {delMes.length === 1 ? 'visita' : 'visitas'} · <b className={novMes ? 'alerta' : ''}>{novMes}</b> {novMes === 1 ? 'problema' : 'problemas'}
+              {ultima && <> · <b>{ultimaCorta(ultima.inicio, ahora).valor}</b> última</>}
+            </span>
+          </>}
+        />
 
-        <section className="bloque">
-          {casa.dueno_nombre && (
-            <div className="fila-dato">
-              <User size={20} />
-              <span className="txt">{casa.dueno_nombre}<span>Dueño/a</span></span>
-            </div>
-          )}
-          {casa.mascotas && (
-            <div className="fila-dato"><PawPrint size={20} /><span className="txt">{casa.mascotas}<span>Mascotas: hay que venir todos los días</span></span></div>
-          )}
-          {casa.dueno_telefono && (
-            <a className="btn sec ancho" href={linkWhatsApp(casa.dueno_telefono, `Hola ${primerNombre}!`)} target="_blank" rel="noopener">
-              <WhatsappLogo size={20} weight="fill" color="var(--wa)" /> Escribirle a {primerNombre || 'el dueño'}
-            </a>
-          )}
-          {casa.notas && <p className="notas-internas"><b>Notas (el dueño no las ve):</b> {casa.notas}</p>}
-        </section>
+        {(casa.dueno_telefono || casa.notas) && (
+          <section className="bloque">
+            {casa.dueno_telefono && (
+              <a className="btn sec ancho" href={linkWhatsApp(casa.dueno_telefono, `Hola ${primerNombre}!`)} target="_blank" rel="noopener">
+                <WhatsappLogo size={20} weight="fill" color="var(--wa)" /> Escribirle a {primerNombre || 'el dueño'}
+              </a>
+            )}
+            {casa.notas && <p className="notas-internas"><b>Notas (el dueño no las ve):</b> {casa.notas}</p>}
+          </section>
+        )}
 
         <h2 className="sec-titulo">Enlace para el dueño</h2>
         <section className="bloque explicado">

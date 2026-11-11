@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { CheckCircle, WarningCircle, WhatsappLogo } from '@phosphor-icons/react'
+import { WhatsappLogo } from '@phosphor-icons/react'
 import { obtenerInforme } from '../lib/store.js'
 import { hora, novedades } from '../lib/formato.js'
 import { haceCuanto } from '../lib/agenda.js'
 import { A_CARGO, MARCA, MI_WHATSAPP } from '../config.js'
+import Pase from '../components/Pase.jsx'
 import VisitaDetalle, { Fotos } from '../components/VisitaDetalle.jsx'
 import Logo from '../components/Logo.jsx'
 import Firma from '../components/Firma.jsx'
@@ -54,15 +55,26 @@ export default function Informe() {
 
       {ultima ? (
         <>
-          <section className={`estado-casa ${novUltima.length ? 'alerta' : 'ok'}`}>
-            {novUltima.length ? <WarningCircle size={32} weight="fill" /> : <CheckCircle size={32} weight="fill" />}
-            <div>
-              <h2>{novUltima.length ? (novUltima.length === 1 ? 'Hay algo para tener en cuenta' : `Hay ${novUltima.length} cosas para tener en cuenta`) : 'Tu casa está en orden'}</h2>
-              <p>Última visita {cuandoTexto}{ultima.tipo === 'mascotas' ? ', visita a las mascotas' : ''}.</p>
-              {novUltima.map((it, n) => <p key={n} className="estado-nov">• {it.nota || it.texto}</p>)}
-              {ultima.notas && <p className="estado-nota">“{ultima.notas}”</p>}
-            </div>
-          </section>
+          <Pase
+            className={`pase-informe ${novUltima.length ? 'alerta' : 'ok'}`}
+            banda="INFORME DE TU CASA"
+            campos={[
+              { etiqueta: 'ESTADO', valor: <h2>{novUltima.length ? (novUltima.length === 1 ? 'Hay algo para tener en cuenta' : `Hay ${novUltima.length} cosas para tener en cuenta`) : 'Tu casa está en orden'}</h2>, ancho: true },
+              { etiqueta: 'ÚLTIMA VISITA', valor: <>{cuandoTexto}{ultima.tipo === 'mascotas' ? ' · mascotas' : ''}</> },
+              { etiqueta: 'A CARGO', valor: A_CARGO || MARCA },
+            ]}
+            pie={<>
+              <span className="etq">ÚLTIMOS 30 DÍAS</span>
+              <span className="pase-numeros"><b>{delMes.length}</b> {delMes.length === 1 ? 'visita' : 'visitas'} · <b className={novMes ? 'alerta' : ''}>{novMes}</b> {novMes === 1 ? 'novedad' : 'novedades'}</span>
+            </>}
+          >
+            {(novUltima.length > 0 || ultima.notas) && (
+              <div className="pase-nota">
+                {novUltima.map((it, n) => <p key={n} className="estado-nov">• {it.nota || it.texto}</p>)}
+                {ultima.notas && <p className="estado-nota">“{ultima.notas}”</p>}
+              </div>
+            )}
+          </Pase>
 
           {fotosUltima.length > 0 && (
             <>
@@ -71,7 +83,6 @@ export default function Informe() {
             </>
           )}
 
-          <p className="resumen-mes">En los últimos 30 días: <b>{delMes.length} {delMes.length === 1 ? 'visita' : 'visitas'}</b>{novMes ? <>, <b>{novMes} {novMes === 1 ? 'novedad' : 'novedades'}</b></> : ', sin novedades'}.</p>
         </>
       ) : (
         <p className="bloque">Todavía no hay visitas registradas. Después de la primera visita vas a ver acá cómo está tu casa, con fotos.</p>
