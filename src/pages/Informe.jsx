@@ -59,7 +59,7 @@ export default function Informe() {
             className={`pase-informe ${novUltima.length ? 'alerta' : 'ok'}`}
             banda="INFORME DE TU CASA"
             campos={[
-              { etiqueta: 'ESTADO', valor: <h2>{novUltima.length ? (novUltima.length === 1 ? 'Hay algo para tener en cuenta' : `Hay ${novUltima.length} cosas para tener en cuenta`) : 'Tu casa está en orden'}</h2>, ancho: true },
+              { etiqueta: 'ESTADO', valor: <h2>{novUltima.length ? (novUltima.length === 1 ? 'Hay algo para tener en cuenta' : `Hay ${novUltima.length} cosas para tener en cuenta`) : 'Todo tranquilo en tu casa'}</h2>, ancho: true },
               { etiqueta: 'ÚLTIMA VISITA', valor: <>{cuandoTexto}{ultima.tipo === 'mascotas' ? ' · mascotas' : ''}</> },
               { etiqueta: 'A CARGO', valor: A_CARGO || MARCA },
             ]}
