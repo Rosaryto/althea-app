@@ -1,0 +1,132 @@
+/*
+  Estilo de la web de Althea aplicado a la app.
+  Mismas tipografías (Fraunces, Manrope, IBM Plex Mono), misma paleta
+  (noche, papel y oro) y los mismos recursos: etiquetas en mono con
+  espaciado ancho, títulos en Fraunces con acento en cursiva dorada
+  y botones principales dorados en píldora.
+  Va al final de la cascada: pisa lo que haga falta sin tocar el resto.
+*/
+:root {
+  --noche: #0c1830;
+  --noche-2: #14264a;
+  --oro: #d0a95e;
+  --oro-claro: #ecd29a;
+  --display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+
+  --bg: #f6efe1;
+  --surface: #fffaf0;
+  --surface-2: #f1e6cf;
+  --line: #e3d5b8;
+  --ink: #13213d;
+  --ink-80: rgb(19 33 61 / .8);
+  --muted: #5a6274;
+  --primary: #0c1830;
+  --primary-hover: #14264a;
+  --primary-5: rgb(12 24 48 / .06);
+  --on-primary: #f7f1e4;
+  --accent: #d0a95e;
+  --accent-soft: #f4e6c8;
+  --accent-ink: #7a5a1c;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --r: 22px;
+  font-family: 'Manrope Variable', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c1830;
+    --surface: #14264a;
+    --surface-2: #1b3059;
+    --line: #2a3d66;
+    --ink: #f7f1e4;
+    --ink-80: rgb(247 241 228 / .82);
+    --muted: #b9c3d8;
+    --primary: #d0a95e;
+    --primary-hover: #ecd29a;
+    --primary-5: rgb(208 169 94 / .1);
+    --on-primary: #0c1830;
+    --accent: #d0a95e;
+    --accent-soft: #3a2f17;
+    --accent-ink: #ecd29a;
+  }
+}
+
+/* ---------- tipografía ---------- */
+h1, .sec-titulo, .estado-casa h2, .vacio h2, .terminada h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: 'opsz' 96;
+  letter-spacing: -0.02em;
+}
+h1 { font-size: 34px; line-height: 1.05; }
+.sec-titulo { font-size: 24px; line-height: 1.1; }
+.sec-titulo .contador, .sec-titulo .mono { font-family: var(--mono); }
+.mono { letter-spacing: 0; }
+
+/* etiqueta tipo web: mono, mayúsculas, dorado y con una rayita */
+.saludo .fecha, .para-quien, .tl-cuerpo h4 {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-weight: 600; font-size: 11px;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--accent-ink);
+}
+.saludo .fecha::before, .para-quien::before { content: ''; width: 22px; height: 1.5px; background: currentColor; flex: none; }
+
+/* ---------- inicio: cabecera azul noche como la portada de la web ---------- */
+body:has(.saludo) .barra { background: var(--noche); color: #f7f1e4; }
+body:has(.saludo) .barra .icono, body:has(.saludo) .barra .link { color: #f7f1e4; }
+body:has(.saludo) .barra .btn { background: var(--oro); color: var(--noche); }
+body:has(.saludo) .barra .btn.sec { background: rgb(255 255 255 / .08); color: #f7f1e4; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .25); }
+.saludo {
+  margin: -16px -16px 8px; padding: 28px 22px 34px;
+  background: radial-gradient(120% 90% at 90% 0%, #1d3566 0%, var(--noche-2) 40%, var(--noche) 100%);
+  color: #f7f1e4; border-radius: 0 0 28px 28px;
+}
+.saludo .fecha { color: var(--oro-claro); }
+.saludo h1 { font-size: 44px; margin: 14px 0 10px; color: #f7f1e4; }
+.saludo p { color: rgb(247 241 228 / .78); }
+.saludo p b { color: var(--oro-claro); }
+
+/* ---------- tarjetas ---------- */
+.casa-card, .bloque, .stat, .tl-card, .item, .item-listo { box-shadow: 0 1px 0 rgb(19 33 61 / .04), inset 0 0 0 1px var(--line); }
+.casa-info b { font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: -0.01em; }
+.stat b { font-family: var(--display); font-weight: 600; font-size: 24px; letter-spacing: -0.02em; }
+.stat span { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.resumen-visita .stat b { font-size: 20px; white-space: nowrap; }
+.tl-cab b { font-family: var(--display); font-weight: 600; font-size: 17px; }
+
+/* ---------- portada de la casa ---------- */
+.portada h1 { font-size: 40px; color: #f7f1e4; }
+.portada .chip { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.portada .chip.alerta { background: var(--oro); color: var(--noche); }
+.portada.sin-foto { background: radial-gradient(120% 90% at 90% 0%, #1d3566 0%, var(--noche-2) 45%, var(--noche) 100%); }
+
+/* ---------- botones: el principal dorado, como en la web ---------- */
+.btn.grande, .btn.wa { background: var(--oro); color: var(--noche); box-shadow: 0 10px 24px -12px rgb(208 169 94 / .9); }
+.btn.grande:hover, .btn.wa:hover { background: var(--oro-claro); }
+.btn { font-weight: 700; }
+.segmentos button.activo { background: var(--noche); color: #f7f1e4; }
+.seccion-cab h2 { font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: -0.01em; }
+.seccion-cab .btn-todo { background: var(--noche); color: var(--oro-claro); }
+.contador { background: var(--oro); color: var(--noche); }
+.cronometro { background: var(--noche); color: #f7f1e4; }
+
+/* ---------- visita terminada ---------- */
+.terminada h1 { font-size: 40px; font-style: italic; color: var(--accent-ink); }
+.festejo .check { background: var(--noche); color: var(--oro-claro); box-shadow: 0 14px 32px -10px rgb(12 24 48 / .6), 0 0 0 4px var(--oro); }
+.festejo .onda { background: var(--oro); }
+.chat { background: var(--surface-2); }
+.burbuja { background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+
+/* ---------- informe del dueño ---------- */
+.informe-top { font-family: var(--display); font-size: 18px; }
+.informe-top small { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; }
+.estado-casa.ok { background: var(--noche); color: #f7f1e4; }
+.estado-casa.ok > svg { color: var(--oro); }
+.estado-casa.ok h2 { color: #f7f1e4; }
+.estado-casa.ok p { color: rgb(247 241 228 / .8); }
+.estado-casa .estado-nota { font-family: var(--display); font-size: 17px; color: var(--oro-claro); }
+.informe-pie { background: var(--noche); color: #f7f1e4; }
+.informe-pie h2 { font-family: var(--display); font-weight: 500; font-size: 26px; }
+.informe-pie .muted, .informe-pie p { color: rgb(247 241 228 / .78); }
+
+/* ---------- login ---------- */
+.login-cuerpo > p:not(.firma-lambda) { font-family: var(--display); font-style: italic; font-size: 19px; color: var(--accent-ink); }

@@ -1,7 +1,7 @@
 /*
   Althea · sistema visual de la app
-  Paleta: azul noche, crema y un acento dorado (novedades).
-  Tipografía: Geist. 4 tamaños (13 / 15 / 18 / 28) y 2 pesos (400 / 600). Números en Geist Mono.
+  Paleta: azul noche, papel y oro, igual que la web (ver styles/estilo-web.css).
+  Tipografía: Fraunces (títulos), Manrope (texto) e IBM Plex Mono (etiquetas y números), igual que la web.
   Espaciado: múltiplos de 4 y 8. Radios: tarjetas 20px, campos 12px, botones en píldora.
   Tema: sigue al sistema (claro / oscuro).
 
@@ -22,3 +22,4 @@
 @import './styles/informe-detalle.css';
 @import './styles/terminaciones.css';
 @import './styles/agenda.css';
+@import './styles/estilo-web.css';

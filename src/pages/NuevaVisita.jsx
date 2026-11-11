@@ -159,7 +159,7 @@ export default function NuevaVisita() {
             <div className="stat"><b>{fotos}</b><span>fotos</span></div>
           </div>
 
-          <p className="para-quien">{nombre ? `Este es el mensaje para ${nombre}. Mandalo con el botón verde de abajo.` : 'Este es el mensaje para el dueño. Copialo con el botón de abajo y mandáselo.'}</p>
+          <p className="para-quien">{nombre ? `Este es el mensaje para ${nombre}. Mandalo con el botón de abajo.` : 'Este es el mensaje para el dueño. Copialo con el botón de abajo y mandáselo.'}</p>
           <div className="chat"><pre className="burbuja">{texto}</pre></div>
           <div style={{ textAlign: 'center', marginTop: 24 }}>
             <Link to="/" className="link">Volver al inicio</Link>
