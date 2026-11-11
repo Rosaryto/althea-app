@@ -38,9 +38,10 @@ entrada sin inicio de sesión.
 **En producción:** <https://althea-salta.netlify.app> (requiere inicio de
 sesión con un correo autorizado).
 
-**Demo pública:** <https://althea-salta.netlify.app/?demo> (o el enlace
-"Ver una demo" en la pantalla de login). Corre con datos de ejemplo en el
-navegador del visitante y **no se conecta a la base real**.
+**Demo pública:** <https://althea-salta.netlify.app/?demo>. Corre con datos de
+ejemplo en el navegador del visitante y **no se conecta a la base real**. Solo se
+abre con ese enlace: la pantalla de login no lo ofrece y, sin `?demo` en la
+dirección, siempre se ve la app real.
 
 ---
 
@@ -59,7 +60,7 @@ navegador del visitante y **no se conecta a la base real**.
 - **Planes con frecuencia.** La pantalla de inicio calcula cuándo toca visitar
   cada casa según su plan (por día, semanal, quincenal, mensual o Turno Minero; todos los días si hay mascotas).
 - **Modo demo.** Una demo pública con datos de ejemplo que corre solo en el
-  navegador (se entra con `?demo` o con el enlace "Ver una demo" del login). No
+  navegador (se entra solo con `?demo` en la dirección). No
   accede a la base de datos real.
 
 ## Tecnologías
